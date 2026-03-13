@@ -1,0 +1,311 @@
+openapi: 3.1.0
+info:
+  title: Google Photos Library API
+  description: >-
+    The Google Photos Library API allows you to manage photos, videos, and albums
+    in Google Photos. You can create and manage albums, upload and retrieve media
+    items, and share albums with other users.
+  version: v1
+  contact:
+    name: Google
+    url: https://developers.google.com/photos
+servers:
+  - url: https://photoslibrary.googleapis.com/v1
+paths:
+  /mediaItems:
+    get:
+      operationId: listMediaItems
+      summary: List media items
+      description: >-
+        List all media items from a user's Google Photos library.
+      parameters:
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+            maximum: 100
+        - name: pageToken
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MediaItemListResponse'
+    post:
+      operationId: batchCreateMediaItems
+      summary: Create media items
+      description: Creates one or more media items in a user's Google Photos library.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                albumId:
+                  type: string
+                newMediaItems:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                      simpleMediaItem:
+                        type: object
+                        properties:
+                          uploadToken:
+                            type: string
+                          fileName:
+                            type: string
+      responses:
+        '200':
+          description: Successful response
+  /mediaItems/{mediaItemId}:
+    get:
+      operationId: getMediaItem
+      summary: Get a media item
+      description: Returns the media item for the specified media item identifier.
+      parameters:
+        - name: mediaItemId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MediaItem'
+  /mediaItems:search:
+    post:
+      operationId: searchMediaItems
+      summary: Search media items
+      description: Searches for media items in a user's Google Photos library.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                albumId:
+                  type: string
+                pageSize:
+                  type: integer
+                pageToken:
+                  type: string
+                filters:
+                  type: object
+                  properties:
+                    dateFilter:
+                      type: object
+                    contentFilter:
+                      type: object
+                    mediaTypeFilter:
+                      type: object
+                      properties:
+                        mediaTypes:
+                          type: array
+                          items:
+                            type: string
+                            enum:
+                              - ALL_MEDIA
+                              - VIDEO
+                              - PHOTO
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MediaItemListResponse'
+  /albums:
+    get:
+      operationId: listAlbums
+      summary: List albums
+      description: Lists all albums shown to a user in the Albums tab of Google Photos.
+      parameters:
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+            maximum: 50
+        - name: pageToken
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AlbumListResponse'
+    post:
+      operationId: createAlbum
+      summary: Create an album
+      description: Creates an album in a user's Google Photos library.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                album:
+                  $ref: '#/components/schemas/Album'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Album'
+  /albums/{albumId}:
+    get:
+      operationId: getAlbum
+      summary: Get an album
+      description: Returns the album based on the specified albumId.
+      parameters:
+        - name: albumId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Album'
+  /sharedAlbums:
+    get:
+      operationId: listSharedAlbums
+      summary: List shared albums
+      description: Lists all shared albums available in the Sharing tab.
+      parameters:
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+        - name: pageToken
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+components:
+  schemas:
+    MediaItem:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Identifier for the media item.
+        description:
+          type: string
+        productUrl:
+          type: string
+          format: uri
+        baseUrl:
+          type: string
+          format: uri
+        mimeType:
+          type: string
+        mediaMetadata:
+          type: object
+          properties:
+            creationTime:
+              type: string
+              format: date-time
+            width:
+              type: string
+            height:
+              type: string
+            photo:
+              type: object
+              properties:
+                cameraMake:
+                  type: string
+                cameraModel:
+                  type: string
+                focalLength:
+                  type: number
+                apertureFNumber:
+                  type: number
+                isoEquivalent:
+                  type: integer
+            video:
+              type: object
+              properties:
+                cameraMake:
+                  type: string
+                cameraModel:
+                  type: string
+                fps:
+                  type: number
+                status:
+                  type: string
+                  enum:
+                    - UNSPECIFIED
+                    - PROCESSING
+                    - READY
+                    - FAILED
+        filename:
+          type: string
+    MediaItemListResponse:
+      type: object
+      properties:
+        mediaItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/MediaItem'
+        nextPageToken:
+          type: string
+    Album:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        productUrl:
+          type: string
+          format: uri
+        isWriteable:
+          type: boolean
+        mediaItemsCount:
+          type: string
+        coverPhotoBaseUrl:
+          type: string
+          format: uri
+        coverPhotoMediaItemId:
+          type: string
+    AlbumListResponse:
+      type: object
+      properties:
+        albums:
+          type: array
+          items:
+            $ref: '#/components/schemas/Album'
+        nextPageToken:
+          type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/photoslibrary: View and manage your Google Photos library
+            https://www.googleapis.com/auth/photoslibrary.readonly: View your Google Photos library
+            https://www.googleapis.com/auth/photoslibrary.sharing: Manage and add to shared albums
+security:
+  - oauth2: []

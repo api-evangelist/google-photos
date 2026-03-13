@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/google-photos/refs/heads/main/json-schema/photos.json",
+  "title": "Google Photos Media Item",
+  "description": "A media item resource from the Google Photos Library API representing a photo or video.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Identifier for the media item."
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the media item."
+    },
+    "productUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "A URL to the media item in Google Photos."
+    },
+    "baseUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "A URL to the bytes of the media item."
+    },
+    "mimeType": {
+      "type": "string",
+      "description": "MIME type of the media item."
+    },
+    "mediaMetadata": {
+      "type": "object",
+      "description": "Metadata related to the media item.",
+      "properties": {
+        "creationTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Time when the media item was first created."
+        },
+        "width": {
+          "type": "string",
+          "description": "Original width in pixels of the media item."
+        },
+        "height": {
+          "type": "string",
+          "description": "Original height in pixels of the media item."
+        },
+        "photo": {
+          "type": "object",
+          "description": "Metadata for a photo media type.",
+          "properties": {
+            "cameraMake": {
+              "type": "string"
+            },
+            "cameraModel": {
+              "type": "string"
+            },
+            "focalLength": {
+              "type": "number"
+            },
+            "apertureFNumber": {
+              "type": "number"
+            },
+            "isoEquivalent": {
+              "type": "integer"
+            },
+            "exposureTime": {
+              "type": "string"
+            }
+          }
+        },
+        "video": {
+          "type": "object",
+          "description": "Metadata for a video media type.",
+          "properties": {
+            "cameraMake": {
+              "type": "string"
+            },
+            "cameraModel": {
+              "type": "string"
+            },
+            "fps": {
+              "type": "number"
+            },
+            "status": {
+              "type": "string",
+              "enum": ["UNSPECIFIED", "PROCESSING", "READY", "FAILED"]
+            }
+          }
+        }
+      }
+    },
+    "filename": {
+      "type": "string",
+      "description": "Filename of the media item."
+    }
+  },
+  "required": ["id"]
+}

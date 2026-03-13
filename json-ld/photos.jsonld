@@ -1,0 +1,31 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "gphotos": "https://photoslibrary.googleapis.com/v1/",
+    "MediaItem": "gphotos:MediaItem",
+    "Album": "gphotos:Album",
+    "id": "schema:identifier",
+    "description": "schema:description",
+    "productUrl": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "baseUrl": {
+      "@id": "schema:contentUrl",
+      "@type": "@id"
+    },
+    "mimeType": "schema:encodingFormat",
+    "filename": "schema:name",
+    "creationTime": {
+      "@id": "schema:dateCreated",
+      "@type": "schema:DateTime"
+    },
+    "width": "schema:width",
+    "height": "schema:height",
+    "cameraMake": "schema:manufacturer",
+    "cameraModel": "schema:model",
+    "title": "schema:name",
+    "coverPhotoBaseUrl": "schema:thumbnailUrl",
+    "mediaItemsCount": "schema:numberOfItems"
+  }
+}
