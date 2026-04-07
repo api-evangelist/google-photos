@@ -10,13 +10,13 @@ created: '2026-03-13'
 modified: '2026-03-13'
 specificationVersion: '0.18'
 tags:
-  - Photos
-  - Images
   - Albums
-  - Media
   - Google
-  - Storage
+  - Images
+  - Media
+  - Photos
   - Sharing
+  - Storage
 apis:
   - name: Google Photos Library API v1
     description: >-
