@@ -1,0 +1,358 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Photos Library API
+  description: The Google Photos Library API allows you to manage photos, videos, and albums in Google Photos. You can create
+    and manage albums, upload and retrieve media items, and share albums with other users.
+  tags:
+  - Google
+  - Photos
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: google-photos
+    baseUri: https://photoslibrary.googleapis.com/v1
+    description: Google Photos Library API HTTP API.
+    authentication:
+      type: bearer
+      token: '{{GOOGLE_PHOTOS_TOKEN}}'
+    resources:
+    - name: mediaitems
+      path: /mediaItems
+      operations:
+      - name: listmediaitems
+        method: GET
+        description: List media items
+        inputParameters:
+        - name: pageSize
+          in: query
+          type: integer
+        - name: pageToken
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: batchcreatemediaitems
+        method: POST
+        description: Create media items
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: mediaitems-mediaitemid
+      path: /mediaItems/{mediaItemId}
+      operations:
+      - name: getmediaitem
+        method: GET
+        description: Get a media item
+        inputParameters:
+        - name: mediaItemId
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: mediaitems-search
+      path: /mediaItems:search
+      operations:
+      - name: searchmediaitems
+        method: POST
+        description: Search media items
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: albums
+      path: /albums
+      operations:
+      - name: listalbums
+        method: GET
+        description: List albums
+        inputParameters:
+        - name: pageSize
+          in: query
+          type: integer
+        - name: pageToken
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createalbum
+        method: POST
+        description: Create an album
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: albums-albumid
+      path: /albums/{albumId}
+      operations:
+      - name: getalbum
+        method: GET
+        description: Get an album
+        inputParameters:
+        - name: albumId
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sharedalbums
+      path: /sharedAlbums
+      operations:
+      - name: listsharedalbums
+        method: GET
+        description: List shared albums
+        inputParameters:
+        - name: pageSize
+          in: query
+          type: integer
+        - name: pageToken
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: google-photos-rest
+    description: REST adapter for Google Photos Library API.
+    resources:
+    - path: /mediaItems
+      name: listmediaitems
+      operations:
+      - method: GET
+        name: listmediaitems
+        description: List media items
+        call: google-photos.listmediaitems
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /mediaItems
+      name: batchcreatemediaitems
+      operations:
+      - method: POST
+        name: batchcreatemediaitems
+        description: Create media items
+        call: google-photos.batchcreatemediaitems
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /mediaItems/{mediaItemId}
+      name: getmediaitem
+      operations:
+      - method: GET
+        name: getmediaitem
+        description: Get a media item
+        call: google-photos.getmediaitem
+        with:
+          mediaItemId: rest.mediaItemId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /mediaItems:search
+      name: searchmediaitems
+      operations:
+      - method: POST
+        name: searchmediaitems
+        description: Search media items
+        call: google-photos.searchmediaitems
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /albums
+      name: listalbums
+      operations:
+      - method: GET
+        name: listalbums
+        description: List albums
+        call: google-photos.listalbums
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /albums
+      name: createalbum
+      operations:
+      - method: POST
+        name: createalbum
+        description: Create an album
+        call: google-photos.createalbum
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /albums/{albumId}
+      name: getalbum
+      operations:
+      - method: GET
+        name: getalbum
+        description: Get an album
+        call: google-photos.getalbum
+        with:
+          albumId: rest.albumId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /sharedAlbums
+      name: listsharedalbums
+      operations:
+      - method: GET
+        name: listsharedalbums
+        description: List shared albums
+        call: google-photos.listsharedalbums
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: google-photos-mcp
+    transport: http
+    description: MCP adapter for Google Photos Library API for AI agent use.
+    tools:
+    - name: listmediaitems
+      description: List media items
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-photos.listmediaitems
+      with:
+        pageSize: tools.pageSize
+        pageToken: tools.pageToken
+      inputParameters:
+      - name: pageSize
+        type: integer
+        description: pageSize
+      - name: pageToken
+        type: string
+        description: pageToken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: batchcreatemediaitems
+      description: Create media items
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: google-photos.batchcreatemediaitems
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getmediaitem
+      description: Get a media item
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-photos.getmediaitem
+      with:
+        mediaItemId: tools.mediaItemId
+      inputParameters:
+      - name: mediaItemId
+        type: string
+        description: mediaItemId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: searchmediaitems
+      description: Search media items
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: google-photos.searchmediaitems
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listalbums
+      description: List albums
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-photos.listalbums
+      with:
+        pageSize: tools.pageSize
+        pageToken: tools.pageToken
+      inputParameters:
+      - name: pageSize
+        type: integer
+        description: pageSize
+      - name: pageToken
+        type: string
+        description: pageToken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createalbum
+      description: Create an album
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: google-photos.createalbum
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getalbum
+      description: Get an album
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-photos.getalbum
+      with:
+        albumId: tools.albumId
+      inputParameters:
+      - name: albumId
+        type: string
+        description: albumId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listsharedalbums
+      description: List shared albums
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-photos.listsharedalbums
+      with:
+        pageSize: tools.pageSize
+        pageToken: tools.pageToken
+      inputParameters:
+      - name: pageSize
+        type: integer
+        description: pageSize
+      - name: pageToken
+        type: string
+        description: pageToken
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    GOOGLE_PHOTOS_TOKEN: GOOGLE_PHOTOS_TOKEN
