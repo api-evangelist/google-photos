@@ -8,36 +8,38 @@ created: '2026-03-13'
 modified: '2026-05-19'
 specificationVersion: '0.18'
 tags:
-- Albums
-- Google
-- Images
-- Media
-- Photos
-- Sharing
-- Storage
+  - Albums
+  - Google
+  - Images
+  - Media
+  - Photos
+  - Sharing
+  - Storage
 apis:
-- name: Google Photos Library API v1
-  description: The Google Photos Library API provides programmatic access to Google Photos for managing media items and albums.
-    Supports uploading, searching, listing, and sharing photos and videos.
-  humanURL: https://developers.google.com/photos
-  baseURL: https://photoslibrary.googleapis.com/v1
-  properties:
-  - type: OpenAPI
-    url: openapi/photos.yml
-  - type: JSONSchema
-    url: json-schema/photos.json
-  - type: NaftikoCapability
-    url: capabilities/photos.yaml
-  overlays: []
+  - name: Google Photos Library API v1
+    description: The Google Photos Library API provides programmatic access to Google Photos for managing media items and albums.
+      Supports uploading, searching, listing, and sharing photos and videos.
+    humanURL: https://developers.google.com/photos
+    baseURL: https://photoslibrary.googleapis.com/v1
+    properties:
+    - type: OpenAPI
+      url: openapi/photos.yml
+    - type: JSONSchema
+      url: json-schema/photos.json
+    - type: NaftikoCapability
+      url: capabilities/photos.yaml
+    overlays: []
 common:
-- type: LinkedIn
-  url: https://www.linkedin.com/company/google-photos
-- type: GettingStarted
-  url: https://developers.google.com/photos/library/guides/get-started
-- type: Pricing
-  url: https://developers.google.com/photos/library/guides/api-client-libraries
-- type: JSONLD
-  url: json-ld/photos.jsonld
+  - type: GitHubOrganization
+    url: https://github.com/googlesamples
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/google-photos
+  - type: GettingStarted
+    url: https://developers.google.com/photos/library/guides/get-started
+  - type: Pricing
+    url: https://developers.google.com/photos/library/guides/api-client-libraries
+  - type: JSONLD
+    url: json-ld/photos.jsonld
 maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
+  - FN: Kin Lane
+    email: kin@apievangelist.com
