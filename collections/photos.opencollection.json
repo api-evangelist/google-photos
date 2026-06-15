@@ -1,0 +1,172 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Photos Library API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "accessTokenUrl": "https://oauth2.googleapis.com/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "List media items",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://photoslibrary.googleapis.com/v1/mediaItems",
+        "params": [
+          {
+            "name": "pageSize",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "pageToken",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "List all media items from a user's Google Photos library."
+    },
+    {
+      "info": {
+        "name": "Create media items",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://photoslibrary.googleapis.com/v1/mediaItems",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Creates one or more media items in a user's Google Photos library."
+    },
+    {
+      "info": {
+        "name": "Get a media item",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://photoslibrary.googleapis.com/v1/mediaItems/:mediaItemId",
+        "params": [
+          {
+            "name": "mediaItemId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Returns the media item for the specified media item identifier."
+    },
+    {
+      "info": {
+        "name": "Search media items",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://photoslibrary.googleapis.com/v1/mediaItems:search",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Searches for media items in a user's Google Photos library."
+    },
+    {
+      "info": {
+        "name": "List albums",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://photoslibrary.googleapis.com/v1/albums",
+        "params": [
+          {
+            "name": "pageSize",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "pageToken",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "Lists all albums shown to a user in the Albums tab of Google Photos."
+    },
+    {
+      "info": {
+        "name": "Create an album",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://photoslibrary.googleapis.com/v1/albums",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Creates an album in a user's Google Photos library."
+    },
+    {
+      "info": {
+        "name": "Get an album",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://photoslibrary.googleapis.com/v1/albums/:albumId",
+        "params": [
+          {
+            "name": "albumId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Returns the album based on the specified albumId."
+    },
+    {
+      "info": {
+        "name": "List shared albums",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://photoslibrary.googleapis.com/v1/sharedAlbums",
+        "params": [
+          {
+            "name": "pageSize",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "pageToken",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "Lists all shared albums available in the Sharing tab."
+    }
+  ],
+  "bundled": true
+}
