@@ -3,7 +3,7 @@ description: >-
   The Google Photos Library API allows you to manage photos, videos, and albums in Google Photos. You can create and
   manage albums, upload and retrieve media items, search through your photo library, and share albums with other users.
   The API uses OAuth 2.0 for authentication and requires a Google account.
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/google-photos/refs/heads/main/apis.yml
 created: '2026-03-13'
 modified: '2026-05-19'
