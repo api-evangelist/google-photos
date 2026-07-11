@@ -30,6 +30,12 @@ apis:
         url: json-schema/photos.json
     overlays: []
 common:
+  - type: VulnerabilityDisclosure
+    url: security/google-photos-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/google-photos-domain-security.yml
+  - type: Authentication
+    url: authentication/google-photos-authentication.yml
   - type: OAuthScopes
     url: scopes/google-photos-scopes.yml
   - type: GitHubOrganization
