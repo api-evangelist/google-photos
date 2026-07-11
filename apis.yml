@@ -30,6 +30,8 @@ apis:
         url: json-schema/photos.json
     overlays: []
 common:
+  - type: OAuthScopes
+    url: scopes/google-photos-scopes.yml
   - type: GitHubOrganization
     url: https://github.com/googlesamples
   - type: LinkedIn

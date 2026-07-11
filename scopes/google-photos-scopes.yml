@@ -1,0 +1,29 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/photos.yml
+schemes:
+- name: oauth2
+  source: openapi/photos.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://accounts.google.com/o/oauth2/auth
+    tokenUrl: https://oauth2.googleapis.com/token
+scopes:
+- scope: https://www.googleapis.com/auth/photoslibrary
+  description: View and manage your Google Photos library
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/photos.yml
+- scope: https://www.googleapis.com/auth/photoslibrary.readonly
+  description: View your Google Photos library
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/photos.yml
+- scope: https://www.googleapis.com/auth/photoslibrary.sharing
+  description: Manage and add to shared albums
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/photos.yml
