@@ -30,6 +30,8 @@ apis:
         url: json-schema/photos.json
     overlays: []
 common:
+  - type: AgenticAccess
+    url: agentic-access/google-photos-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/google-photos-vulnerability-disclosure.yml
   - type: DomainSecurity
