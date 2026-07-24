@@ -1,0 +1,121 @@
+openapi: 3.1.0
+info:
+  title: Google Photos Library Albums API
+  description: The Google Photos Library API allows you to manage photos, videos, and albums in Google Photos. You can create and manage albums, upload and retrieve media items, and share albums with other users.
+  version: v1
+  contact:
+    name: Google
+    url: https://developers.google.com/photos
+servers:
+- url: https://photoslibrary.googleapis.com/v1
+security:
+- oauth2: []
+tags:
+- name: Albums
+paths:
+  /albums:
+    get:
+      operationId: listAlbums
+      summary: List albums
+      description: Lists all albums shown to a user in the Albums tab of Google Photos.
+      parameters:
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          maximum: 50
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AlbumListResponse'
+      tags:
+      - Albums
+    post:
+      operationId: createAlbum
+      summary: Create an album
+      description: Creates an album in a user's Google Photos library.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                album:
+                  $ref: '#/components/schemas/Album'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Album'
+      tags:
+      - Albums
+  /albums/{albumId}:
+    get:
+      operationId: getAlbum
+      summary: Get an album
+      description: Returns the album based on the specified albumId.
+      parameters:
+      - name: albumId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Album'
+      tags:
+      - Albums
+components:
+  schemas:
+    Album:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        productUrl:
+          type: string
+          format: uri
+        isWriteable:
+          type: boolean
+        mediaItemsCount:
+          type: string
+        coverPhotoBaseUrl:
+          type: string
+          format: uri
+        coverPhotoMediaItemId:
+          type: string
+    AlbumListResponse:
+      type: object
+      properties:
+        albums:
+          type: array
+          items:
+            $ref: '#/components/schemas/Album'
+        nextPageToken:
+          type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/photoslibrary: View and manage your Google Photos library
+            https://www.googleapis.com/auth/photoslibrary.readonly: View your Google Photos library
+            https://www.googleapis.com/auth/photoslibrary.sharing: Manage and add to shared albums
