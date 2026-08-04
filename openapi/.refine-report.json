@@ -1,0 +1,20 @@
+{
+  "provider": "google-photos",
+  "sources": [
+    "google-photos-albums-api-openapi.yml",
+    "google-photos-mediaitems-api-openapi.yml",
+    "google-photos-mediaitems-search-api-openapi.yml",
+    "google-photos-sharedalbums-api-openapi.yml"
+  ],
+  "outputs": [
+    "google-photos-albums-api-openapi.yml",
+    "google-photos-mediaitems-api-openapi.yml",
+    "google-photos-mediaitems-search-api-openapi.yml",
+    "google-photos-sharedalbums-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
