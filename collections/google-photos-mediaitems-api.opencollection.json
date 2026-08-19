@@ -1,0 +1,86 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Photos Library Albums MediaItems API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "accessTokenUrl": "https://oauth2.googleapis.com/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "MediaItems",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List media items",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://photoslibrary.googleapis.com/v1/mediaItems",
+            "params": [
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List all media items from a user's Google Photos library."
+        },
+        {
+          "info": {
+            "name": "Create media items",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://photoslibrary.googleapis.com/v1/mediaItems",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates one or more media items in a user's Google Photos library."
+        },
+        {
+          "info": {
+            "name": "Get a media item",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://photoslibrary.googleapis.com/v1/mediaItems/:mediaItemId",
+            "params": [
+              {
+                "name": "mediaItemId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the media item for the specified media item identifier."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

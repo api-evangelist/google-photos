@@ -1,0 +1,346 @@
+{
+  "item": [
+    {
+      "id": "1ebc0fe7-e5b3-4e63-9a72-bd28e0f6c91d",
+      "name": "Albums",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9c5ab708-b04b-434c-84fe-375eb8bd44dd",
+          "name": "List albums",
+          "request": {
+            "name": "List albums",
+            "description": {
+              "content": "Lists all albums shown to a user in the Albums tab of Google Photos.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "albums"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4ebf59b9-e904-4af4-b429-b85858551cd6",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "albums"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"albums\": [\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"productUrl\": \"https://JYEEYyGNDsOPmsDocz.ggfo,ZmcPhUNblNQQQrTe-yzWFMs9C7EOemcsASS3o\",\n      \"isWriteable\": false,\n      \"mediaItemsCount\": \"string\",\n      \"coverPhotoBaseUrl\": \"http://SGkJouCDbwDTjCaVyxMeEHLvbZ.slfCWsxJSXfu,Ro2XCLSnh0xtT,U.NhpZC,fJtGRmyTmh9qI1CWJXRugL+xuh\",\n      \"coverPhotoMediaItemId\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"productUrl\": \"http://VEWIuiXLcrMuLBoZIFBVskcmXClG.hqpgh0+mIoDwxErZYHdLYmBkkBUV,XZYFzkD\",\n      \"isWriteable\": false,\n      \"mediaItemsCount\": \"string\",\n      \"coverPhotoBaseUrl\": \"http://rifMFbNrxWkK.hyiuy\",\n      \"coverPhotoMediaItemId\": \"string\"\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4ec9be90-79e3-4a23-835a-dbb01ce12a24",
+          "name": "Create an album",
+          "request": {
+            "name": "Create an album",
+            "description": {
+              "content": "Creates an album in a user's Google Photos library.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "albums"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"album\": {\n    \"id\": \"<string>\",\n    \"title\": \"<string>\",\n    \"productUrl\": \"<uri>\",\n    \"isWriteable\": \"<boolean>\",\n    \"mediaItemsCount\": \"<string>\",\n    \"coverPhotoBaseUrl\": \"<uri>\",\n    \"coverPhotoMediaItemId\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e7d37e06-3d04-4ab8-b7d8-ce9286952bc5",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "albums"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"album\": {\n    \"id\": \"string\",\n    \"title\": \"string\",\n    \"productUrl\": \"https://VwUuoTcnLDoJNPpAb.dpoygaqyfL2j6Eel22Op01prktoZFGnYwcPj0Zv8Jfe9.PwqJ9ptabAK\",\n    \"isWriteable\": true,\n    \"mediaItemsCount\": \"string\",\n    \"coverPhotoBaseUrl\": \"http://itzSsAOXpfHagvhZfSdqvwgJnhsjNzYw.cpfZMwHZVPM3+Pq\",\n    \"coverPhotoMediaItemId\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"title\": \"string\",\n  \"productUrl\": \"http://TMQAEKlZbeuckFPkEaIotIyaJEEHp.qcyZPPzPFRiGgzB7wGw+.z41zZmJWWLx7LfB+cuPY3IUT4JoXBxANECu78Fa\",\n  \"isWriteable\": false,\n  \"mediaItemsCount\": \"string\",\n  \"coverPhotoBaseUrl\": \"http://HWfrOlKeHhjHrZGgZmeJoBPRVUif.jiorAulyxSW0M+kgGcXLzpoi\",\n  \"coverPhotoMediaItemId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5cf00a0e-7b2d-4b9b-aa1c-f1bda9505a2a",
+          "name": "Get an album",
+          "request": {
+            "name": "Get an album",
+            "description": {
+              "content": "Returns the album based on the specified albumId.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "albums",
+                ":albumId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "albumId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c7001edb-6166-4b95-9165-41746ca03f60",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "albums",
+                    ":albumId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "albumId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"title\": \"string\",\n  \"productUrl\": \"http://TMQAEKlZbeuckFPkEaIotIyaJEEHp.qcyZPPzPFRiGgzB7wGw+.z41zZmJWWLx7LfB+cuPY3IUT4JoXBxANECu78Fa\",\n  \"isWriteable\": false,\n  \"mediaItemsCount\": \"string\",\n  \"coverPhotoBaseUrl\": \"http://HWfrOlKeHhjHrZGgZmeJoBPRVUif.jiorAulyxSW0M+kgGcXLzpoi\",\n  \"coverPhotoMediaItemId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://photoslibrary.googleapis.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/photoslibrary https://www.googleapis.com/auth/photoslibrary.readonly https://www.googleapis.com/auth/photoslibrary.sharing"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "16df05b3-a3fa-4196-a53c-de20198ca983",
+    "name": "Google Photos Library Albums API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Google Photos Library API allows you to manage photos, videos, and albums in Google Photos. You can create and manage albums, upload and retrieve media items, and share albums with other users.\n\nContact Support:\n Name: Google",
+      "type": "text/plain"
+    }
+  }
+}

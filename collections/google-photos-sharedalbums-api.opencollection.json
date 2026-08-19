@@ -1,0 +1,53 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Photos Library Albums SharedAlbums API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "accessTokenUrl": "https://oauth2.googleapis.com/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "SharedAlbums",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List shared albums",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://photoslibrary.googleapis.com/v1/sharedAlbums",
+            "params": [
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists all shared albums available in the Sharing tab."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

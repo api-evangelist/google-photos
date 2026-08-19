@@ -1,0 +1,338 @@
+{
+  "item": [
+    {
+      "id": "b76013f0-b7cf-473e-b5cb-84cc704973c8",
+      "name": "MediaItems",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "35d2c1c5-bf81-42a5-a9f9-80bf34c5866d",
+          "name": "List media items",
+          "request": {
+            "name": "List media items",
+            "description": {
+              "content": "List all media items from a user's Google Photos library.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mediaItems"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5506e8fb-4439-48e3-a088-7845fe0d9338",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mediaItems"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"mediaItems\": [\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"productUrl\": \"http://zdCYnXDHzJeouBBwluVPFB.hrfkTF44tNwRreCybY3G+UQuIxpC,GRuiTwor\",\n      \"baseUrl\": \"https://bETCVLGdHwN.iipdoEfbQ1nU-m-ttlqiiDZGEkdSP6YDRI8aVmrSCVtI31khAw7QPm3U+UkYLyl1+OQWNhSIUBf.bvmVwlbFGaGnaBw\",\n      \"mimeType\": \"string\",\n      \"mediaMetadata\": {\n        \"creationTime\": \"1950-03-03T23:36:33.550Z\",\n        \"width\": \"string\",\n        \"height\": \"string\",\n        \"photo\": {\n          \"cameraMake\": \"string\",\n          \"cameraModel\": \"string\",\n          \"focalLength\": 9017.571315112313,\n          \"apertureFNumber\": 5983.224351970845,\n          \"isoEquivalent\": 5418\n        },\n        \"video\": {\n          \"cameraMake\": \"string\",\n          \"cameraModel\": \"string\",\n          \"fps\": 349.51376263950505,\n          \"status\": \"READY\"\n        }\n      },\n      \"filename\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"productUrl\": \"https://LTlPZpDjaFfnDSYRdgZupIfyhHKXaFXdZ.yadhW7uM5IvaUTEmba67BTD5YMET07F3rtwADxfpb-jhCFHZCDKJIodklln+sc8AwgTqPEIG-caNwQWmV\",\n      \"baseUrl\": \"http://jSgbOhXXUfVPp.dkK6-2vgFVX1Z6n0snhcdfyH2Hhdru\",\n      \"mimeType\": \"string\",\n      \"mediaMetadata\": {\n        \"creationTime\": \"1993-07-23T22:00:45.250Z\",\n        \"width\": \"string\",\n        \"height\": \"string\",\n        \"photo\": {\n          \"cameraMake\": \"string\",\n          \"cameraModel\": \"string\",\n          \"focalLength\": 5840.080630839169,\n          \"apertureFNumber\": 350.5684812427801,\n          \"isoEquivalent\": 2633\n        },\n        \"video\": {\n          \"cameraMake\": \"string\",\n          \"cameraModel\": \"string\",\n          \"fps\": 3595.272959566309,\n          \"status\": \"UNSPECIFIED\"\n        }\n      },\n      \"filename\": \"string\"\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2d135cbd-0e78-475d-a5c3-6b1688158ce8",
+          "name": "Create media items",
+          "request": {
+            "name": "Create media items",
+            "description": {
+              "content": "Creates one or more media items in a user's Google Photos library.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mediaItems"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"albumId\": \"<string>\",\n  \"newMediaItems\": [\n    {\n      \"description\": \"<string>\",\n      \"simpleMediaItem\": {\n        \"uploadToken\": \"<string>\",\n        \"fileName\": \"<string>\"\n      }\n    },\n    {\n      \"description\": \"<string>\",\n      \"simpleMediaItem\": {\n        \"uploadToken\": \"<string>\",\n        \"fileName\": \"<string>\"\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1240590a-ae2b-430a-a40c-95d33f119315",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mediaItems"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"albumId\": \"<string>\",\n  \"newMediaItems\": [\n    {\n      \"description\": \"<string>\",\n      \"simpleMediaItem\": {\n        \"uploadToken\": \"<string>\",\n        \"fileName\": \"<string>\"\n      }\n    },\n    {\n      \"description\": \"<string>\",\n      \"simpleMediaItem\": {\n        \"uploadToken\": \"<string>\",\n        \"fileName\": \"<string>\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6ef86bef-b402-4ae4-8fa2-84ced26495c3",
+          "name": "Get a media item",
+          "request": {
+            "name": "Get a media item",
+            "description": {
+              "content": "Returns the media item for the specified media item identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mediaItems",
+                ":mediaItemId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mediaItemId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eab3779d-fbda-459e-b7bd-2f478c6e1bb7",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mediaItems",
+                    ":mediaItemId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mediaItemId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"description\": \"string\",\n  \"productUrl\": \"https://sbxCBOOveafkjFiRbF.usdZ.m5N0ZXRBofPtnuvGLIEIYl8hU-aAl2S8pGoCQD5T-qwYgeI5xh5GS1YjU,wH,Ekfj\",\n  \"baseUrl\": \"http://pWAJFBFhz.qiHmEXOVbYgh9cdxHw9PA8ZrT2PQd4OQcnD4OrfEZoG7tX7YvLA4MceC36H-lyqE\",\n  \"mimeType\": \"string\",\n  \"mediaMetadata\": {\n    \"creationTime\": \"1989-07-29T22:36:15.294Z\",\n    \"width\": \"string\",\n    \"height\": \"string\",\n    \"photo\": {\n      \"cameraMake\": \"string\",\n      \"cameraModel\": \"string\",\n      \"focalLength\": 2245.4459650633385,\n      \"apertureFNumber\": 8651.373028902466,\n      \"isoEquivalent\": 4656\n    },\n    \"video\": {\n      \"cameraMake\": \"string\",\n      \"cameraModel\": \"string\",\n      \"fps\": 2417.087697702087,\n      \"status\": \"PROCESSING\"\n    }\n  },\n  \"filename\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://photoslibrary.googleapis.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/photoslibrary https://www.googleapis.com/auth/photoslibrary.readonly https://www.googleapis.com/auth/photoslibrary.sharing"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "543faa8a-76ee-480c-886a-887b57bed2b6",
+    "name": "Google Photos Library Albums MediaItems API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Google Photos Library API allows you to manage photos, videos, and albums in Google Photos. You can create and manage albums, upload and retrieve media items, and share albums with other users.\n\nContact Support:\n Name: Google",
+      "type": "text/plain"
+    }
+  }
+}

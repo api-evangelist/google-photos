@@ -1,0 +1,45 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Photos Library Albums MediaItems:search API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "accessTokenUrl": "https://oauth2.googleapis.com/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "MediaItems:search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search media items",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://photoslibrary.googleapis.com/v1/mediaItems:search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Searches for media items in a user's Google Photos library."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

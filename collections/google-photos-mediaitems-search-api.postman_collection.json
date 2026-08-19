@@ -1,0 +1,152 @@
+{
+  "item": [
+    {
+      "id": "00351b1b-7972-48bb-a31a-663dac616932",
+      "name": "MediaItems:search",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3deec9f2-4327-4fe3-9c49-00f3ef533def",
+          "name": "Search media items",
+          "request": {
+            "name": "Search media items",
+            "description": {
+              "content": "Searches for media items in a user's Google Photos library.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mediaItems:search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"albumId\": \"<string>\",\n  \"pageSize\": \"<integer>\",\n  \"pageToken\": \"<string>\",\n  \"filters\": {\n    \"dateFilter\": \"<object>\",\n    \"contentFilter\": \"<object>\",\n    \"mediaTypeFilter\": {\n      \"mediaTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b4c114f6-4a58-40fd-a957-c23b18c91154",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mediaItems:search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"albumId\": \"<string>\",\n  \"pageSize\": \"<integer>\",\n  \"pageToken\": \"<string>\",\n  \"filters\": {\n    \"dateFilter\": \"<object>\",\n    \"contentFilter\": \"<object>\",\n    \"mediaTypeFilter\": {\n      \"mediaTypes\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"mediaItems\": [\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"productUrl\": \"https://WL.sljrb6OeQGa8iE\",\n      \"baseUrl\": \"http://rggqcDhpNKapaHSrRXGVyN.ufoiLBbguvRpspMt35oLi2xnwDz\",\n      \"mimeType\": \"string\",\n      \"mediaMetadata\": {\n        \"creationTime\": \"2009-08-18T19:18:44.088Z\",\n        \"width\": \"string\",\n        \"height\": \"string\",\n        \"photo\": {\n          \"cameraMake\": \"string\",\n          \"cameraModel\": \"string\",\n          \"focalLength\": 1058.5586285052796,\n          \"apertureFNumber\": 3257.4523156831006,\n          \"isoEquivalent\": 8185\n        },\n        \"video\": {\n          \"cameraMake\": \"string\",\n          \"cameraModel\": \"string\",\n          \"fps\": 6060.834840844347,\n          \"status\": \"UNSPECIFIED\"\n        }\n      },\n      \"filename\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"productUrl\": \"https://LKmpJGnflGiOVuqViPiUJIJdMkegZP.bhySrV5Qft9r2WTVNheYMPVRARKE,GBoAoOweV-pe8wzSjNq\",\n      \"baseUrl\": \"http://XoPxqpwjcGSwlUuXoZVt.imviQNl8zN-W,\",\n      \"mimeType\": \"string\",\n      \"mediaMetadata\": {\n        \"creationTime\": \"1965-09-24T12:00:16.825Z\",\n        \"width\": \"string\",\n        \"height\": \"string\",\n        \"photo\": {\n          \"cameraMake\": \"string\",\n          \"cameraModel\": \"string\",\n          \"focalLength\": 1631.9109709949764,\n          \"apertureFNumber\": 9773.961106980289,\n          \"isoEquivalent\": 8545\n        },\n        \"video\": {\n          \"cameraMake\": \"string\",\n          \"cameraModel\": \"string\",\n          \"fps\": 6169.386657281884,\n          \"status\": \"UNSPECIFIED\"\n        }\n      },\n      \"filename\": \"string\"\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://photoslibrary.googleapis.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/photoslibrary https://www.googleapis.com/auth/photoslibrary.readonly https://www.googleapis.com/auth/photoslibrary.sharing"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2711e643-0439-4528-8b87-6ae12cd74ccc",
+    "name": "Google Photos Library Albums MediaItems:search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Google Photos Library API allows you to manage photos, videos, and albums in Google Photos. You can create and manage albums, upload and retrieve media items, and share albums with other users.\n\nContact Support:\n Name: Google",
+      "type": "text/plain"
+    }
+  }
+}
