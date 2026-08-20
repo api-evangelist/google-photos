@@ -24,6 +24,14 @@ specificationVersion: '0.23'
 tags:
   - Albums
   - Google
+  - Image
+  - Media
+  - Photos
+  - Sharing
+  - Storage
+tags_raw:
+  - Albums
+  - Google
   - Images
   - Media
   - Photos
@@ -48,6 +56,8 @@ apis:
   humanURL: https://developers.google.com/photos
   baseURL: https://photoslibrary.googleapis.com/v1
   tags:
+  - Media Items
+  tags_raw:
   - MediaItems
   properties:
   - type: OpenAPI
