@@ -3,6 +3,18 @@ description: >-
   The Google Photos Library API allows you to manage photos, videos, and albums in Google Photos. You can create and
   manage albums, upload and retrieve media items, search through your photo library, and share albums with other users.
   The API uses OAuth 2.0 for authentication and requires a Google account.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
