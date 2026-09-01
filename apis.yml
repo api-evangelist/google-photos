@@ -68,7 +68,7 @@ apis:
   humanURL: https://developers.google.com/photos
   baseURL: https://photoslibrary.googleapis.com/v1
   tags:
-  - MediaItems
+  - Media Items
   tags_raw:
   - MediaItems
   properties:
