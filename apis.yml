@@ -62,20 +62,6 @@ apis:
     url: openapi/google-photos-albums-api-openapi.yml
   - type: JSONSchema
     url: json-schema/photos.json
-- aid: google-photos:google-photos-mediaitems-api
-  name: Google Photos Library MediaItems API
-  description: The MediaItems API from Google Photos Library — 2 operation(s) for mediaitems.
-  humanURL: https://developers.google.com/photos
-  baseURL: https://photoslibrary.googleapis.com/v1
-  tags:
-  - Media Items
-  tags_raw:
-  - MediaItems
-  properties:
-  - type: OpenAPI
-    url: openapi/google-photos-mediaitems-api-openapi.yml
-  - type: JSONSchema
-    url: json-schema/photos.json
 - aid: google-photos:google-photos-mediaitems-search-api
   name: Google Photos Library MediaItems:search API
   description: >-
@@ -99,6 +85,18 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/google-photos-sharedalbums-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/photos.json
+- aid: google-photos:google-photos-media-items-api
+  name: Google Photos Library Media Items API
+  description: The Media Items API from Google Photos Library — 2 operation(s) for media items.
+  humanURL: https://developers.google.com/photos
+  baseURL: https://photoslibrary.googleapis.com/v1
+  tags:
+  - Media Items
+  properties:
+  - type: OpenAPI
+    url: openapi/google-photos-media-items-api-openapi.yml
   - type: JSONSchema
     url: json-schema/photos.json
 common:
