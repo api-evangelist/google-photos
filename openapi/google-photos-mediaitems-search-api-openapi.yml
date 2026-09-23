@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Google Photos Library Albums Media Items:search API
+  title: Google Photos Library Media Items:search API
   description: The Google Photos Library API allows you to manage photos, videos, and albums in Google Photos. You can create and manage albums, upload and retrieve media items, and share albums with other users.
   version: v1
   contact:
@@ -59,6 +59,15 @@ paths:
       - MediaItems:search
 components:
   schemas:
+    MediaItemListResponse:
+      type: object
+      properties:
+        mediaItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/MediaItem'
+        nextPageToken:
+          type: string
     MediaItem:
       type: object
       properties:
@@ -115,15 +124,6 @@ components:
                   - READY
                   - FAILED
         filename:
-          type: string
-    MediaItemListResponse:
-      type: object
-      properties:
-        mediaItems:
-          type: array
-          items:
-            $ref: '#/components/schemas/MediaItem'
-        nextPageToken:
           type: string
   securitySchemes:
     oauth2:

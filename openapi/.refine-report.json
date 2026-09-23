@@ -1,10 +1,7 @@
 {
   "provider": "google-photos",
   "sources": [
-    "google-photos-albums-api-openapi.yml",
-    "google-photos-mediaitems-api-openapi.yml",
-    "google-photos-mediaitems-search-api-openapi.yml",
-    "google-photos-sharedalbums-api-openapi.yml"
+    "_original/photos.yml"
   ],
   "outputs": [
     "google-photos-albums-api-openapi.yml",
@@ -12,15 +9,33 @@
     "google-photos-mediaitems-search-api-openapi.yml",
     "google-photos-sharedalbums-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 1 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
   "notes": [
-    "google-photos-albums-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "google-photos-mediaitems-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "google-photos-mediaitems-search-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "google-photos-sharedalbums-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "apis.yml register: already-registered"
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "photos.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "photos.yml: tagged paths GET /mediaItems -> MediaItems",
+    "photos.yml: tagged paths POST /mediaItems -> MediaItems",
+    "photos.yml: tagged paths GET /mediaItems/{mediaItemId} -> MediaItems",
+    "photos.yml: tagged paths POST /mediaItems:search -> MediaItems:search",
+    "photos.yml: tagged paths GET /albums -> Albums",
+    "photos.yml: tagged paths POST /albums -> Albums",
+    "photos.yml: tagged paths GET /albums/{albumId} -> Albums",
+    "photos.yml: tagged paths GET /sharedAlbums -> SharedAlbums",
+    "photos.yml: declared missing tag: Albums",
+    "photos.yml: declared missing tag: MediaItems",
+    "photos.yml: declared missing tag: MediaItems:search",
+    "photos.yml: declared missing tag: SharedAlbums",
+    "superseded outputs removed: google-photos-media-items-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 4 total)"
   ],
-  "skipped": []
+  "skipped": [
+    "google-photos-albums-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "google-photos-media-items-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "google-photos-mediaitems-search-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "google-photos-sharedalbums-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
