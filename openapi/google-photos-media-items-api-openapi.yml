@@ -90,6 +90,15 @@ paths:
       - Media Items
 components:
   schemas:
+    MediaItemListResponse:
+      type: object
+      properties:
+        mediaItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/MediaItem'
+        nextPageToken:
+          type: string
     MediaItem:
       type: object
       properties:
@@ -146,15 +155,6 @@ components:
                   - READY
                   - FAILED
         filename:
-          type: string
-    MediaItemListResponse:
-      type: object
-      properties:
-        mediaItems:
-          type: array
-          items:
-            $ref: '#/components/schemas/MediaItem'
-        nextPageToken:
           type: string
   securitySchemes:
     oauth2:
