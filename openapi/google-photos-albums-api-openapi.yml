@@ -80,6 +80,15 @@ paths:
       - Albums
 components:
   schemas:
+    AlbumListResponse:
+      type: object
+      properties:
+        albums:
+          type: array
+          items:
+            $ref: '#/components/schemas/Album'
+        nextPageToken:
+          type: string
     Album:
       type: object
       properties:
@@ -98,15 +107,6 @@ components:
           type: string
           format: uri
         coverPhotoMediaItemId:
-          type: string
-    AlbumListResponse:
-      type: object
-      properties:
-        albums:
-          type: array
-          items:
-            $ref: '#/components/schemas/Album'
-        nextPageToken:
           type: string
   securitySchemes:
     oauth2:
